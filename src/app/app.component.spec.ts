@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'Proof-of-concept' title`, () => {
+  it(`should have the 'SAAD-AML' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Proof-of-concept');
+    expect(app.title).toEqual('SAAD-AML');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Proof-of-concept');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, SAAD-AML');
   });
 });

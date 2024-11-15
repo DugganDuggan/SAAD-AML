@@ -3,9 +3,12 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Proof-of-concept": {
+    "SAAD-AML": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +16,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/proof-of-concept",
+            "outputPath": "dist/saad-aml",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Proof-of-concept:build:production"
+              "buildTarget": "SAAD-AML:build:production"
             },
             "development": {
-              "buildTarget": "Proof-of-concept:build:development"
+              "buildTarget": "SAAD-AML:build:development"
             }
           },
           "defaultConfiguration": "development"
