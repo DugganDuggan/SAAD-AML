@@ -1,17 +1,20 @@
 <header>
-    <nav>
-        <div>
-            <span routerLink="/">{{title()}}</span>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a routerLink="/" class="logo">AML</a>
+            <a routerLink="/" class="nav-link">Home</a>
+            <a routerLink="/" class="nav-link">Browse</a>
+            <a routerLink="/" class="nav-link">Categories</a>
+            <a routerLink="/" class="nav-link">Wishlist</a>
+            <a routerLink="/" class="nav-link">Blog</a>
+            <a routerLink="/" class="nav-link">About Us</a>
         </div>
-        <ul>
-            <button  *ngIf="!loggedIn" routerLink="/login">Login</button>
-            <button  *ngIf="!loggedIn" routerLink="/register">Sign Up</button>
+        <div class="navbar-right">
+            <input type="text" class="search-bar" placeholder="Search book...">
+            <a routerLink="/login" class="nav-link">Sign In</a>
+            <a routerLink="/register" class="nav-link">Register</a>
 
-    
-            <!-- Show these items if the user IS logged in -->
-            <button  *ngIf="loggedIn" routerLink="/account">Account</button>
-            <button  *ngIf="loggedIn" routerLink="/" (click)="updateLogIn()">Logout</button>
-
-        </ul>
+        </div>
     </nav>
+
 </header>

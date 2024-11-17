@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-import { PageComponent } from './components/page/page.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, PageComponent],
+  imports: [HeaderComponent, RouterOutlet],
   template: `
   <app-header/>
   <main>
-    <app-page/>
+    <router-outlet/>
   </main>
 `,
   styles: [

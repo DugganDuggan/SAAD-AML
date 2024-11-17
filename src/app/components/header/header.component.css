@@ -1,35 +1,50 @@
-nav {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #333;
-    color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 24%;
-    padding-right: 24%;
-    font-family: Arial, Helvetica, sans-serif;
-}
-span{
-    cursor: pointer;
-    font-size: 25px;
-    font-weight: bold;
-}
-ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
+    padding: 1vh 15vh;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-button {
-    border: none;
-    padding: 6px 12px;
-    display: inline;
-    cursor: pointer;
-    border-radius: 16px;
-    transition: background-color 0.5s;  
-  }
-  
-  button:hover{
-    background-color: #999;
-  }
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 5vh;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 2.5vh;
+}
+
+.logo {
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #000;
+}
+
+.active {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.search-bar {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
