@@ -4,8 +4,12 @@
             <span routerLink="/">{{title()}}</span>
         </div>
         <ul>
-            <li routerLink="/register">Register</li>
-            <li routerLink="/login">Login</li>
+            <li *ngIf="!loggedIn" routerLink="/register">Register</li>
+            <li *ngIf="!loggedIn" routerLink="/login" (click)="toggleLogIn()">Login</li>
+    
+            <!-- Show these items if the user IS logged in -->
+            <li *ngIf="loggedIn" routerLink="/profile">Account</li>
+            <li *ngIf="loggedIn" routerLink="/" (click)="toggleLogIn()">Logout</li>
         </ul>
     </nav>
 </header>
