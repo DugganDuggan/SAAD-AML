@@ -1,19 +1,23 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
+import { PageComponent } from './components/page/page.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent],
+  imports: [HeaderComponent, PageComponent],
   template: `
   <app-header/>
   <main>
-    <router-outlet/>
+    <app-page/>
   </main>
 `,
   styles: [
     `
+    main{
+      padding-top: 5%;
+    }
     `
   ],
 })
