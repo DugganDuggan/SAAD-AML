@@ -5,11 +5,11 @@
         </div>
         <ul>
             <li *ngIf="!loggedIn" routerLink="/register">Register</li>
-            <li *ngIf="!loggedIn" routerLink="/login" (click)="toggleLogIn()">Login</li>
+            <li *ngIf="!loggedIn" routerLink="/login">Login</li>
     
             <!-- Show these items if the user IS logged in -->
             <li *ngIf="loggedIn" routerLink="/profile">Account</li>
-            <li *ngIf="loggedIn" routerLink="/" (click)="toggleLogIn()">Logout</li>
+            <li *ngIf="loggedIn" routerLink="/" (click)="updateLogIn()">Logout</li>
         </ul>
     </nav>
 </header>

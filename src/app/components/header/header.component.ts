@@ -9,7 +9,6 @@ import { NgIf } from '@angular/common';
   imports: [RouterLink, NgIf],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
-  providers:[LoginService]
 })
 export class HeaderComponent {
   title = signal('AML')
@@ -18,8 +17,8 @@ export class HeaderComponent {
   get loggedIn() {
     return this.logInService.isLoggedIn;
   }
-  toggleLogIn() {
-    this.logInService.updateLogIn();
+  updateLogIn() {
+    this.logInService.loggedInFalse();
   }
 
 }

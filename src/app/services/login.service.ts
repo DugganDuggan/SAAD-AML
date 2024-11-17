@@ -10,9 +10,12 @@ export class LoginService {
     return this.loggedIn();
   }
 
-  updateLogIn() {
-    this.loggedIn.update((loggedIn) => !loggedIn);
+  loggedInTrue(){
+    this.loggedIn = signal(true);
   }
-
+  loggedInFalse(){
+    this.loggedIn = signal(false);
+  }
+  
   constructor() { }
 }
