@@ -1,22 +1,24 @@
 
 
-/* Style the white box */
 .centered {
     margin: auto;
     width: 60%;
     background-color: white;
     padding: 10px;
     border-radius:10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
-
+  .search{
+    width: 50%;
+    margin: auto;
+  }
 
   .dropdown {
     position: relative;
     display: inline-block;
     max-width: 300px;
+    padding-right: 50px;
   }
 
   .dropdown-button {
@@ -41,10 +43,9 @@
     border-radius: 4px;
     max-height: 400px;
     overflow-y: auto;
-    width: 200px; /* Adjust this value to make it wider */
+    width: 200px;
   }
   
-
   .dropdown:hover .dropdown-content {
     display: block;
   }
@@ -69,3 +70,24 @@
     margin-right: 10px;
   }
 
+  ::placeholder {
+    color: #333;
+    
+  }
+  .search-bar:focus {
+    outline: none;
+    border-bottom: solid #333
+  }
+  
+.search-bar {
+    padding: 5px 10px;
+    border: none;
+    font-size: 16px;
+    background-color: transparent;
+}
+
+.search-container{
+    border-bottom: solid;
+    border-width: 2px;
+    border-color: #333;
+}
