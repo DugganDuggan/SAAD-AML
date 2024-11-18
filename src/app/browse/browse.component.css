@@ -9,6 +9,12 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
+  .separator {
+    border-bottom: 2px solid #333; /* Line between divs */
+    margin: 10px 0;
+  }
+  
+
   .column {
     float: left;
     width: 33.33%;
@@ -34,7 +40,7 @@
     position: relative;
     display: inline-block;
     max-width: 300px;
-    padding-right: 35vh;
+    margin-right: 35vh;
   }
 
   .dropdown-button {
