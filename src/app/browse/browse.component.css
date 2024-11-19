@@ -2,7 +2,7 @@
 
 .centered {
     margin: auto;
-    width: 70%;
+    width: 75%;
     background-color: white;
     padding: 10px;
     border-radius:10px;
@@ -98,10 +98,12 @@ img{
     margin-left: auto;
     margin-right: auto;  
     padding-bottom: 15px;
+    max-width: 200px;
+    max-height: 200px;
 }
 
 .column label {
-    margin-right: 100px
+    margin-right: 50px
 }
 .column button {
     background-color: #333;
