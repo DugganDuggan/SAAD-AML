@@ -15,7 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
   styles: [
     `
     main{
-      padding-top: 5%;
+      padding-top: 2.5%;
     }
     `
   ],
