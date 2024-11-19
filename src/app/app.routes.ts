@@ -6,6 +6,6 @@ export const routes: Routes = [
     {path: 'login', loadComponent: () => {return import('./login/login.component').then((m) => m.LoginComponent)}},
     {path: 'account', loadComponent: () => {return import('./account/account.component').then((m) => m.AccountComponent)}},
     {path: 'browse', loadComponent: () => {return import('./browse/browse.component').then((m) => m.BrowseComponent)}},
-    {path: 'borrow', loadComponent: () => {return import('./borrow/borrow.component').then((m) => m.BorrowComponent)}}
+    {path: 'media-details', loadComponent: () => {return import('./media-details/media-details.component').then((m) => m.MediaDetailsComponent)}}
 
 ];

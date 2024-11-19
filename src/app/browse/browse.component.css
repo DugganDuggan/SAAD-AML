@@ -41,7 +41,7 @@
 .row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 200px; /* Add space between rows */
+    margin-bottom: 50px; /* Add space between rows */
 }
   
   .media-search{
@@ -92,3 +92,29 @@
     background-color: transparent;
 }
 
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;  
+    padding-bottom: 15px;
+}
+
+.column label {
+    margin-right: 100px
+}
+.column button {
+    background-color: #333;
+    border-radius: 8px;
+    border-style: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 10px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .column button:hover,
+  .column button:focus {
+  background-color: black;
+}
