@@ -1,65 +1,84 @@
 <div class="centered">
-
-    <div class="media-search">
-        <div class="dropdown">
-            <button class="dropdown-button">Filter</button>
-            <div class="dropdown-content">
-            <!-- Availability Section -->
-            <div class="filter-section">
-                <h4>Availability</h4>
-                <div class="filter-options">
-                <label><input type="radio" name="availability" value="Available">Available to borrow</label>
-                <label><input type="radio" name="availability" value="Checked Out">Available to reserve</label>
-                <label><input type="radio" name="availability" value="Checked Out">Unavaliable</label>
-                </div>
-            </div>
-        
-            <!-- Genre Section -->
-            <div class="filter-section">
-                <h4>Genre</h4>
-                <div class="filter-options">
-                <label><input type="radio" name="genre" value="Fiction">Fiction</label>
-                <label><input type="radio" name="genre" value="Non-Fiction">Non-Fiction</label>
-                <label><input type="radio" name="genre" value="Sci-Fi">Sci-Fi</label>
-                <label><input type="radio" name="genre" value="Fantasy">Fantasy</label>
-                </div>
-            </div>
-        
-            <!-- Type Section -->
-            <div class="filter-section">
-                <h4>Type</h4>
-                <div class="filter-options">
-                <label><input type="radio" name="type" value="Book">Book</label>
-                <label><input type="radio" name="type" value="Ebook">Ebook</label>
-                <label><input type="radio" name="type" value="Audiobook">Audiobook</label>
-                </div>
-            </div>
-            </div>
-        </div>
-            <input type="text" class="search-bar" placeholder="Search...">
-    </div>
+    <input type="text" class="search-bar" placeholder="Search...">
 
     <div class="separator"></div>
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="filter">
+            <div class="media-search">
+                <!-- Availability Section -->
+                <div class="filter-section">
+                    <h4>Availability</h4>
+                    <div class="filter-options">
+                        <label><input type="radio" name="availability" value="Available">Available to Borrow</label>
+                        <label><input type="radio" name="availability" value="Checked Out">Available to Reserve</label>
+                        <label><input type="radio" name="availability" value="Checked Out">Unavailable</label>
+                    </div>
+                </div>
 
-    <div class="results">
-        <div class="row">
-            <div class="column">Media 1
-                <button routerLink="/borrow" >borrow</button>
+                <!-- Genre Section -->
+                <div class="filter-section">
+                    <h4>Genre</h4>
+                    <div class="filter-options">
+                        <label *ngFor="let genre of genres()">
+                            <input 
+                              type="radio" 
+                              name="genre" 
+                              [value]="genre" 
+                              (change)="onFilterChange(genre)" 
+                              [checked]="selectedOption() === genre">
+                            {{ genre }}
+                          </label>
+                    </div>
+                </div>
+
+                <!-- Type Section -->
+                <div class="filter-section">
+                    <h4>Type</h4>
+                    <div class="filter-options">
+                        <label *ngFor="let type of types()">
+                            <input 
+                              type="radio" 
+                              name="genre" 
+                              [value]="type" 
+                              (change)="onFilterChange(type)" 
+                              [checked]="selectedOption() === type">
+                            {{ type }}
+                          </label>                    </div>
+                </div>
+                <div class="filter-section">
+                    <h4>Publication Date</h4>
+                    <label>From </label>
+                    <input type="date" id="start-date" name="start-date">
+                    <label>To </label>
+                    <input type="date" id="end-date" name="end-date">
+                
+                </div>
             </div>
-            <div class="column">Media 2
+        </div>
 
-
+        <!-- Results Section -->
+        <div class="results">
+            <div class="row">
+                <div class="column">Media 1<button>View More</button></div>
+                <div class="column">Media 2<button>View More</button></div>
+                <div class="column">Media 3<button>View More</button></div>
             </div>
-            <div class="column">Media 3
-
-
+            <div class="row">
+                <div class="column">Media 4<button>View More</button></div>
+                <div class="column">Media 5<button>View More</button></div>
+                <div class="column">Media 6<button>View More</button></div>
             </div>
-          </div>          
+            <div class="row">
+                <div class="column">Media 7<button>View More</button></div>
+                <div class="column">Media 8<button>View More</button></div>
+                <div class="column">Media 9<button>View More</button></div>
+            </div>
+            <div class="row">
+                <div class="column">Media 10<button>View More</button></div>
+                <div class="column">Media 11<button>View More</button></div>
+                <div class="column">Media 12<button>View More</button></div>
+            </div>
+        </div>
     </div>
-    <div class="row">
-        <div class="column">Media 4</div>
-        <div class="column">Media 5</div>
-        <div class="column">Media 6</div>
-    </div>          
 </div>
-    

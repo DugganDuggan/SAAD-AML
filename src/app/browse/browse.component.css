@@ -13,63 +13,39 @@
     border-bottom: 2px solid #333; /* Line between divs */
     margin: 10px 0;
   }
-  
 
-  .column {
-    float: left;
-    width: 33.33%;
+  .container {
+    display: flex;
+}
+
+/* Filter section styling */
+.filter {
+    flex: 1; /* Takes up 15% width as specified before */
+    width: 15%;
+}
+
+/* Results section styling */
+.results {
+    flex: 4; /* Takes up the remaining space */
+    padding-top: 20px;
+}
+
+/* Columns inside the results section */
+.column {
+    float: none; /* Remove float */
+    flex: 1; /* Equal width for columns */
     text-align: center;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+}
+
+/* Row styling for consistent layout */
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 200px; /* Add space between rows */
+}
   
   .media-search{
     padding: 20px;
-  }
-
-  .row{
-    padding-top: 40px;
-  }
-
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    max-width: 300px;
-    margin-right: 35vh;
-  }
-
-  .dropdown-button {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    z-index: 1;
-    border-radius: 4px;
-    max-height: 400px;
-    overflow-y: auto;
-    width: 200px;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
   }
 
   .filter-section {
@@ -88,11 +64,17 @@
     cursor: pointer;
   }
 
-  .filter-options input[type="radio"] {
+  input[type="radio"] {
     margin-right: 10px;
   }
 
-
+  input[type="date"] {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    display: block;
+    cursor: pointer;
+  }
 
 
   ::placeholder {
@@ -108,7 +90,5 @@
     border: none;
     font-size: 16px;
     background-color: transparent;
-    border-bottom: solid;
-    border-width: 2px;
-    border-color: #333;
 }
+
