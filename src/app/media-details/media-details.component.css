@@ -34,3 +34,36 @@
   .text{
     padding-left: 25px;
   }
+
+  button {
+    margin-top: 160px;
+    border-radius: 8px;
+    border-style: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 15px 24px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+button:hover,
+button:focus {
+  background-color: black;
+}
+
+.borrow{
+  background-color:#333;
+  margin-right: 15px;
+
+}
+
+.reserve{
+  background-color: #333;
+
+}
+
+
+.borrowPopup{
+  align-items: center;
+}
+

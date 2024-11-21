@@ -98,12 +98,12 @@ img{
     margin-left: auto;
     margin-right: auto;  
     padding-bottom: 15px;
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 20vh;
+    max-height: 20vh;
 }
 
 .column label {
-    margin-right: 50px
+    margin-right: 2.5vh
 }
 .column button {
     background-color: #333;

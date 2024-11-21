@@ -12,9 +12,18 @@
                 <br>
                 Things about borrowng is it avalibale and where it can be borrowed ie e coppy/ in branch/ delivery
                 <br>
-                Big Button to borrow/reserve
+                <button class="borrow" (click)="showBorrowPopup()">Borrow Media</button>
+                <button class="reserve" (click)="showReservePopup()">Reserve Media</button>
+
+
+                <div *ngIf="reserveHidden()" class="reserveForm">
+                    Reserve Form
+                </div>
             </div>
         </div>
       </div>
-      
+</div>
+
+
+<div *ngIf="borrowHidden()">
 </div>
