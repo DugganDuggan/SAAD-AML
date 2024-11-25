@@ -7,11 +7,6 @@
                 <button class="popup-button" >E-Copy</button>
                 <button class="popup-button">Pickup in branch</button>
                 <button class="popup-button">Delivery to address</button>
-                <label>How long would you like to borrow the media for?</label>
-                <button class="popup-button" >E-Copy</button>
-                <button class="popup-button">Pickup in branch</button>
-                <button class="popup-button">Delivery to address</button>
-
             </div>
             <!-- OPtions for sms or email notification for pickup time and instuctions or delivery  -->
           <button type="submit">Submit</button>
@@ -20,7 +15,7 @@
     </div>    
 </div>
 
-<div *ngIf="reserveHidden()" class="reserveForm">
+<div *ngIf="reserveHidden()" class="popup-overlay">
     <div class="popup-content">
         <h2>Reserve Media Name</h2>
         <form>
@@ -31,14 +26,19 @@
                     <button class="popup-button">Pickup in branch</button>
                     <button class="popup-button">Delivery to address</button>
                 </div>
-                <label>When would you like to reserve the media for</label>
-                <button class="popup-button" >E-Copy</button>
-                <button class="popup-button">Pickup in branch</button>
-                <button class="popup-button">Delivery to address</button>
+                <div class="reserve-time">
+
+                    <label>How long would you like to borrow the media for?</label>
+                    <label style="display: inline;">From:</label>
+                    <input type="date" style="display: inline;">
+                    <br>
+                    <label style="display: inline;">To:</label>
+                    <input type="date" style="display: inline;">
+                </div>
             </div>
             <!-- OPtions for sms or email notification for pickup time and instuctions or delivery  -->
           <button type="submit">Submit</button>
-          <button type="submit">Cancel</button>
+          <button class="cancel" >Cancel</button>
         </form>
     </div>    
 </div>
