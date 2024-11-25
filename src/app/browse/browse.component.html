@@ -1,6 +1,133 @@
 <div class="centered">
-    <!-- Content goes here -->
-    <p>Search bit</p>
+    <input type="text" class="search-bar" placeholder="Search...">
 
-    <p>Then display books below</p>
+    <div class="separator"></div>
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="filter">
+            <div class="media-search">
+                <!-- Availability Section -->
+                <div class="filter-section">
+                    <h4>Availability</h4>
+                    <div class="filter-options">
+                        <label><input type="radio" name="availability" value="Available">Available to Borrow</label>
+                        <label><input type="radio" name="availability" value="Checked Out">Available to Reserve</label>
+                        <label><input type="radio" name="availability" value="Checked Out">Unavailable</label>
+                    </div>
+                </div>
+
+                <!-- Genre Section -->
+                <div class="filter-section">
+                    <h4>Genre</h4>
+                    <div class="filter-options">
+                        <label *ngFor="let genre of genres()">
+                            <input 
+                              type="radio" 
+                              name="genre" 
+                              [value]="genre" 
+                              (change)="onFilterChange(genre)" 
+                              [checked]="selectedOption() === genre">
+                            {{ genre }}
+                          </label>
+                    </div>
+                </div>
+
+                <!-- Type Section -->
+                <div class="filter-section">
+                    <h4>Type</h4>
+                    <div class="filter-options">
+                        <label *ngFor="let type of types()">
+                            <input 
+                              type="radio" 
+                              name="genre" 
+                              [value]="type" 
+                              (change)="onFilterChange(type)" 
+                              [checked]="selectedOption() === type">
+                            {{ type }}
+                          </label>                    </div>
+                </div>
+                <div class="filter-section">
+                    <h4>Publication Date</h4>
+                    <label>From </label>
+                    <input type="date" id="start-date" name="start-date">
+                    <label>To </label>
+                    <input type="date" id="end-date" name="end-date">
+                
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results">
+            <div class="row">
+                <div class="column">
+                    <img src="assets/images/image.png" width="100%" height="100%">
+                    <label>Media 1</label>
+                    <button routerLink="/media-details">View More</button>
+                </div>
+                <div class="column">
+                    <img src="assets/images/image.png" width="100%" height="100%">
+                    <label>Media 2</label>
+                    <button routerLink="/media-details">View More</button>
+                </div>
+                <div class="column">
+                    <img src="assets/images/image.png" width="100%" height="100%">
+                    <label>Media 3</label>
+                    <button routerLink="/media-details">View More</button>
+                </div>
+                <div class="column">
+                    <img src="assets/images/image.png" width="100%" height="100%">
+                    <label>Media 3</label>
+                    <button routerLink="/media-details">View More</button>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="column">
+                    <img src="assets/images/image.png" width="100%" height="100%">
+                    <label>Media 3</label>
+                    <button routerLink="/media-details">View More</button>
+                </div>
+
+                <div class="column">
+                    <img src="assets/images/image.png" width="100%" height="100%">
+                    <label>Media 4</label>
+                    <button routerLink="/media-details">View More</button>
+                </div>
+                <div class="column">
+                    <img src="assets/images/image.png" width="100%" height="100%">
+                    <label>Media 5</label>
+                    <button routerLink="/media-details">View More</button>
+                </div>
+                <div class="column">
+                    <img src="assets/images/image.png" width="100%" height="100%">
+                    <label>Media 6</label>
+                    <button routerLink="/media-details">View More</button>
+                </div>
+            </div>        
+            <div class="row">
+                <div class="column">
+                    <img src="assets/images/image.png" width="100%" height="100%">
+                    <label>Media 3</label>
+                    <button routerLink="/media-details">View More</button>
+                </div>
+
+                <div class="column">
+                    <img src="assets/images/image.png" width="100%" height="100%">
+                    <label>Media 7</label>
+                    <button routerLink="/media-details">View More</button>
+                </div>
+                <div class="column">
+                    <img src="assets/images/image.png" width="100%" height="100%">
+                    <label>Media 8</label>
+                    <button routerLink="/media-details">View More</button>
+                </div>
+                <div class="column">
+                    <img src="assets/images/image.png" width="100%" height="100%">
+                    <label>Media 9</label>
+                    <button routerLink="/media-details">View More</button>
+                </div>
+            </div>        
+        </div>
+    </div>
 </div>

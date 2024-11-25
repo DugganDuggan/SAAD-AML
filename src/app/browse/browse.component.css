@@ -1,12 +1,122 @@
 
 
-/* Style the white box */
 .centered {
     margin: auto;
-    width: 60%;
+    width: 75%;
     background-color: white;
     padding: 10px;
     border-radius:10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
+
+  .separator {
+    border-bottom: 2px solid #333; /* Line between divs */
+    margin: 10px 0;
+  }
+
+  .container {
+    display: flex;
+}
+
+/* Filter section styling */
+.filter {
+    flex: 1; /* Takes up 15% width as specified before */
+    width: 15%;
+}
+
+/* Results section styling */
+.results {
+    flex: 4; /* Takes up the remaining space */
+    padding-top: 20px;
+}
+
+/* Columns inside the results section */
+.column {
+    float: none; /* Remove float */
+    flex: 1; /* Equal width for columns */
+    text-align: center;
+}
+
+/* Row styling for consistent layout */
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px; /* Add space between rows */
+}
+  
+  .media-search{
+    padding: 20px;
+  }
+
+  .filter-section {
+    margin-bottom: 20px;
+  }
+
+  .filter-section h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .filter-options label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+
+  input[type="date"] {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    display: block;
+    cursor: pointer;
+  }
+
+
+  ::placeholder {
+    color: #333;
+    
+  }
+  .search-bar:focus {
+    outline: none;
+  }
+  
+.search-bar {
+    padding: 5px 10px;
+    border: none;
+    font-size: 16px;
+    background-color: transparent;
+}
+
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;  
+    padding-bottom: 15px;
+    max-width: 20vh;
+    max-height: 20vh;
+}
+
+.column label {
+    margin-right: 2.5vh
+}
+.column button {
+    background-color: #333;
+    border-radius: 8px;
+    border-style: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 10px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .column button:hover,
+  .column button:focus {
+  background-color: black;
+}
