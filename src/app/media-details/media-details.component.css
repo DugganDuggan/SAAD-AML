@@ -67,3 +67,132 @@ button:focus {
   align-items: center;
 }
 
+.centered {
+  margin: auto;
+  width: 75%;
+  background-color: white;
+  padding: 10px;
+  border-radius:10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.column {
+  float: left;
+}
+
+.left {
+  width: 30%;
+}
+
+.right {
+  width: 70%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+img{
+  width:100%;
+  height: 100%;
+}
+
+.text{
+  padding-left: 25px;
+}
+
+button {
+  margin-top: 25px;
+  border-radius: 8px;
+  border-style: none;
+  color: #FFFFFF;
+  background-color:#333;
+  cursor: pointer;
+  padding: 15px 24px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-right: 15px;
+}
+
+button:hover,
+button:focus {
+background-color: black;
+}
+
+.borrow{
+margin-top: 160px;
+background-color:#333;
+
+}
+
+.reserve{
+margin-top: 160px;
+background-color: #333;
+
+}
+
+
+.borrowPopup{
+align-items: center;
+}
+
+
+/* Popup overlay: Covers the entire screen */
+.popup-overlay {
+position: fixed; /* Fixed position to stay in place */
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+z-index: 1000; /* Ensure it appears above all other elements */
+display: flex; /* Flexbox for centering */
+justify-content: center; /* Horizontal center */
+align-items: center; /* Vertical center */
+}
+
+/* Popup content: Centered in the overlay */
+.popup-content {
+background: #fff;
+padding: 20px;
+border-radius: 8px;
+width: 100%;
+max-width: 40%;
+max-height: 40%;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for focus effect */
+position: relative; /* Needed for positioning the close button */
+text-align: center;
+}
+
+/* Form styling */
+label {
+padding-top: 15px;
+display: block;
+margin: 10px 0 5px;
+}
+
+button[type="submit"] {
+background-color: #4caf50;
+color: #333;
+width: 100px;
+}
+
+button[type="submit"]:hover {
+background-color: #45a049;
+}
+
+.cancel{
+background-color: red;
+color: #333;
+width: 100px;
+}
+
+.popup-button{
+margin-bottom: 15px;
+width: 180px;
+font-size:  12px;
+
+}
