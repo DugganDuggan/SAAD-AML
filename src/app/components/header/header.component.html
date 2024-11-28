@@ -2,11 +2,10 @@
 <header>
     <nav class="navbar">
         <div class="navbar-left">
-            <a routerLink="/" class="logo">AML</a>
-            <a routerLink="/" class="nav-link">Home</a>
+            <a routerLink="/browse" class="logo">AML</a>
             <a routerLink="/browse" class="nav-link">Browse</a>
 
-            <a *ngIf="loggedIn" routerLink="/register" class="nav-link">Staff Page</a>
+            <a routerLink="/manage-inventory" class="nav-link">Manage Inventory</a>
         </div>
         <div class="navbar-right">
             <div class="search-container">
@@ -16,7 +15,6 @@
             <a *ngIf="!loggedIn" routerLink="/login" class="nav-link">Sign In</a>
             <a *ngIf="!loggedIn" routerLink="/register" class="nav-link">Register</a>
 
-            <a *ngIf="loggedIn" routerLink="/account" class="nav-link">Account</a>
             <a *ngIf="loggedIn" routerLink="/" class="nav-link" (click)="updateLogIn()">Logout</a>
 
         </div>
