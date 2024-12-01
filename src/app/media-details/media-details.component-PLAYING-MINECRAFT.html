@@ -1,5 +1,3 @@
-
-
 <div class="popup-overlay" *ngIf="borrowHidden()">
     <div class="popup-content">
         <h2>Borrow Media Name</h2>
@@ -38,8 +36,9 @@
                     <input type="date" style="display: inline;">
                 </div>
             </div>
+            <!-- OPtions for sms or email notification for pickup time and instuctions or delivery  -->
           <button type="submit">Submit</button>
-          <button class="cancel">Cancel</button>
+          <button class="cancel" >Cancel</button>
         </form>
     </div>    
 </div>
@@ -59,7 +58,6 @@
                 <p>Media Description</p>
                 <br>
                 Things about borrowng is it avalibale and where it can be borrowed ie e coppy/ in branch/ delivery
-                <button class="borrow" (click)="click()">click</button>
                 <br>
                 <button class="borrow" (click)="showBorrowPopup()">Borrow Media</button>
                 <button class="reserve" (click)="showReservePopup()">Reserve Media</button>

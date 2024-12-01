@@ -1,28 +1,20 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  private apiUrl = 'http://localhost:3000/users'; // Express API endpoint
+export class SearchMediaService {
 
-  constructor(private http: HttpClient) {}
+  private apiUrl = 'http://localhost:3000/api/data';
 
-  // Fetch all users
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUrl);
-  }
 
-  // Add a new user
-  addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, user);
-  }
+  constructor(private http: HttpClient) { }
+
+
+  getData(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
+}
+
 }

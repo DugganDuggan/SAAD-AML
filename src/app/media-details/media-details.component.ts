@@ -1,5 +1,6 @@
 import { NgIf } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
+import { SearchMediaService } from '../services/search-media.service';
 
 @Component({
   selector: 'app-media-details',
@@ -23,5 +24,23 @@ export class MediaDetailsComponent {
     console.log(this.reserveHidden())
 
   }
+
+
+  data: any[] = [];
+
+  constructor(private SearchMediaService: SearchMediaService) {}
+
+  click() {
+      this.SearchMediaService.getData().subscribe(
+          (response) => {
+              this.data = response;
+              console.log(this.data[0].title)
+          },
+          (error) => {
+              console.error('Error fetching data:', error);
+          }
+      );
+  }
+
 
 }
