@@ -14,18 +14,16 @@
                         <label><input type="radio" name="availability" value="Checked Out">Available to Reserve</label>
                         <label><input type="radio" name="availability" value="Checked Out">Unavailable</label>
                     </div>
-                </div>
-
+                </div>                  
                 <!-- Genre Section -->
                 <div class="filter-section">
                     <h4>Genre</h4>
                     <div class="filter-options">
                         <label *ngFor="let genre of genres()">
                             <input 
-                              type="radio" 
-                              name="genre" 
+                              type="checkbox" 
                               [value]="genre" 
-                              (change)="onFilterChange(genre)" 
+                              (change)="toggleSelection(genre, $event)" 
                               [checked]="selectedOption() === genre">
                             {{ genre }}
                           </label>
@@ -38,10 +36,10 @@
                     <div class="filter-options">
                         <label *ngFor="let type of types()">
                             <input 
-                              type="radio" 
+                              type="checkbox" 
                               name="genre" 
                               [value]="type" 
-                              (change)="onFilterChange(type)" 
+                              (change)="toggleSelection(type, $event)" 
                               [checked]="selectedOption() === type">
                             {{ type }}
                           </label>                    </div>
