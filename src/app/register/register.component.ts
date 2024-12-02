@@ -16,14 +16,17 @@ export class RegisterComponent {
   address: string = '';
   subscriptionPreference: string = '';
 
-  // Handle registration submission
-  onRegister() {
-    console.log('Register clicked');
+  // Method for form submission
+  onRegister(event?: Event) {
+    console.log('Register button clicked!');
     console.log('Name:', this.name);
     console.log('Email:', this.email);
     console.log('Password:', this.password);
     console.log('Contact Number:', this.contactNumber);
     console.log('Address:', this.address);
     console.log('Subscription Preference:', this.subscriptionPreference);
+    if (event) {
+      event.preventDefault(); // Optional: Prevent default form submission behavior
+    }
   }
 }
