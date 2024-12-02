@@ -64,10 +64,14 @@
             <div class="row" *ngFor="let row of rows">
                 <!-- Loop through each row and create 3 columns -->
                 <div class="column" *ngFor="let column of columns">
-                  <img src=" {{ getImage() }}" width="100%" height="100%">
-                  <label>{{ getTitle() }}</label>
-                  <br>
-                  <button routerLink="/media-details">View More</button>
+                    <div *ngIf="getTitle() !== null">
+                        <div class="image-container">
+                            <img [src]="imageUrl" width="100%" height="100%">
+                        </div>
+                        <label id="label">{{ getTitle() }}</label>
+                        <br>
+                        <button [routerLink]="['/media-details', getRow() ]">View More</button>
+                    </div>
                 </div>
             </div>
               

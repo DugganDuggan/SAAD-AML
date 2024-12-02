@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SearchMediaService } from '../services/search-media.service';
@@ -6,7 +6,7 @@ import { SearchMediaService } from '../services/search-media.service';
 @Component({
   selector: 'app-browse',
   standalone: true,
-  imports: [RouterLink, NgFor],
+  imports: [RouterLink, NgFor, NgIf],
   templateUrl: './browse.component.html',
   styleUrl: './browse.component.css'
 })
@@ -25,7 +25,7 @@ export class BrowseComponent implements OnInit{
   data: any[] = [];
   rows: number[] = []; // number of rows of media
   counter: number = 0;
-
+  imageUrl: string = "";
   columns: number[] = [1, 2, 3, 4]
 
   constructor(private SearchMediaService: SearchMediaService) {}
@@ -46,15 +46,19 @@ export class BrowseComponent implements OnInit{
     this.rows = new Array(numberOfRows);  // Create an array with that many elements
   }
 
+
   getTitle(){
-    let title = this.data[this.counter].title
+    try{
+      this.imageUrl = this.data[this.counter].cover_Image_URL
+      return this.data[this.counter].title
+    }
+    catch{
+      return null
+    }
+  }
+
+  getRow(){
     this.counter = this.counter + 1
-    return title
+    return (this.counter - 1)
   }
-
-  getImage(){
-    let image = this.data[this.counter].cover_Image_URL
-    return image
-  }
-
 }

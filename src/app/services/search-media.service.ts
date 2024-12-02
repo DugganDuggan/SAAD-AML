@@ -6,15 +6,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchMediaService {
+private apiUrl = 'http://localhost:3000/api/data';
 
-  private apiUrl = 'http://localhost:3000/api/data';
+private cachedData: any = null; // Cache for data
 
+constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+getData(): Observable<any> {
+  // If data is already cached, return it as an Observable
+  if (this.cachedData) {
+    return this.cachedData;
+  }
 
+  // Otherwise, fetch from API and store it in the cache
+  this.cachedData = this.http.get<any>(this.apiUrl);
 
-  getData(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  return this.cachedData
 }
+
 
 }

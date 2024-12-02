@@ -49,17 +49,16 @@
 <div class="centered">
     <div class="row">
         <div class="column left">
-            <img src="assets/images/image.png" >
+            <img src="{{getImg()}}" >
         </div>
         <div class="column right">
             <div class="text">
-                <h1 style="padding-bottom: 15px;">Media Name</h1>
-                <h3 style="padding-bottom: 15px;">By Author Name</h3>
-                <h4 style="padding-bottom: 15px;">Genre - Publication Date</h4>
-                <p>Media Description</p>
+                <h1 style="padding-bottom: 15px;">{{getTitle()}}</h1>
+                <h3 style="padding-bottom: 15px;">{{getAuthor()}}</h3>
+                <h4 style="padding-bottom: 15px;">{{getGenre()}} - {{getDate()}}</h4>
+                <p>{{getDescription()}}</p>
                 <br>
                 Things about borrowng is it avalibale and where it can be borrowed ie e coppy/ in branch/ delivery
-                <button class="borrow" (click)="click()">click</button>
                 <br>
                 <button class="borrow" (click)="showBorrowPopup()">Borrow Media</button>
                 <button class="reserve" (click)="showReservePopup()">Reserve Media</button>
