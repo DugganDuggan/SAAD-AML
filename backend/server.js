@@ -28,7 +28,7 @@ db.connect((err) => {
 });
 
 app.get('/api/data', (req, res) => {
-    db.query('SELECT * FROM Media ORDER BY RAND();', (err, results) => {
+    db.query('SELECT * FROM Media;', (err, results) => {
         if (err) {
             res.status(500).send(err);
         } else {
