@@ -1,18 +1,31 @@
-import { Component, inject } from '@angular/core';
-import { LoginService } from '../services/login.service';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
-
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  username: string = ''; // Add 'username' property
+  password: string = ''; // Add 'password' property
 
-  logInService = inject(LoginService);
-  updateLogIn() {
-    this.logInService.loggedInTrue();
+  // Method for login submission
+  onLogin() {
+    console.log('Login clicked');
+    console.log('Username:', this.username);
+    console.log('Password:', this.password);
+  }
+
+  // Method for forgotten password
+  onForgotPassword() {
+    console.log('Forgot Password clicked');
+  }
+
+  // Method for sign-up navigation
+  onSignUp() {
+    console.log('Sign Up clicked');
   }
 }
