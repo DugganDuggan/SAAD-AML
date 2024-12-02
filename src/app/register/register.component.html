@@ -74,23 +74,6 @@
         />
       </div>
 
-      <!-- Subscription Preferences -->
-      <div class="form-group">
-        <label for="subscription">Subscription Preferences</label>
-        <select
-          id="subscription"
-          name="subscription"
-          class="form-control"
-          [(ngModel)]="subscriptionPreferences"
-          (change)="onSelectSubscription($event.target.value)"
-        >
-          <option value="">Select...</option>
-          <option value="Basic">Basic</option>
-          <option value="Premium">Premium</option>
-          <option value="VIP">VIP</option>
-        </select>
-      </div>
-
       <!-- Submit Button -->
       <button type="submit" class="btn submit-btn" [disabled]="!registerForm.form.valid">
         Register
