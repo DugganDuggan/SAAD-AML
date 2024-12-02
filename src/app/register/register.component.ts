@@ -9,24 +9,28 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  name: string = '';
+  username: string = '';
+  firstName: string = '';
+  lastName: string = '';
   email: string = '';
-  password: string = '';
-  contactNumber: string = '';
-  address: string = '';
-  subscriptionPreference: string = '';
+  phoneNumber: string = '';
+  address1: string = '';
+  address2: string = '';
+  address3: string = '';
+  postcode: string = '';
 
-  // Method for form submission
-  onRegister(event?: Event) {
-    console.log('Register button clicked!');
-    console.log('Name:', this.name);
-    console.log('Email:', this.email);
-    console.log('Password:', this.password);
-    console.log('Contact Number:', this.contactNumber);
-    console.log('Address:', this.address);
-    console.log('Subscription Preference:', this.subscriptionPreference);
-    if (event) {
-      event.preventDefault(); // Optional: Prevent default form submission behavior
-    }
+  onRegister() {
+    console.log('Registration submitted!');
+    console.log({
+      username: this.username,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      email: this.email,
+      phoneNumber: this.phoneNumber,
+      address1: this.address1,
+      address2: this.address2,
+      address3: this.address3,
+      postcode: this.postcode,
+    });
   }
 }

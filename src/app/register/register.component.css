@@ -1,84 +1,55 @@
-/* Wrapper to hold both sections side-by-side */
-.registration-wrapper {
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Form Section (Left) */
-  .form-section {
-    flex: 1;
-    background-color: #000; /* Black background */
-    color: #fff; /* White text */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .form-section h2 {
-    margin-bottom: 30px;
-    font-size: 24px;
-    text-align: center;
-  }
-  
-  /* Social Section (Right) */
-  .social-section {
-    flex: 1;
-    background-color: #f4f4f4; /* Light gray background */
-    color: #000; /* Black text */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .social-section h2 {
-    font-size: 24px;
-  }
-  
-  /* Form Styling */
-  .form-group {
-    margin-bottom: 15px;
-    width: 100%;
-    max-width: 300px;
-  }
-  
-  .form-control {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #d3d3d3; /* Light gray input background */
-    font-size: 16px;
-  }
-  
-  .form-control::placeholder {
-    color: #999; /* Placeholder text color */
-  }
-  
-  /* Button Styling */
-  .btn {
-    width: 100%;
-    max-width: 300px;
-    padding: 10px;
-    background-color: #333; /* Dark gray button */
-    color: #fff; /* White button text */
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn:hover {
-    background-color: #555; /* Lighter gray on hover */
-  }
-  
-  .btn:disabled {
-    background-color: #aaa; /* Disabled button color */
-    cursor: not-allowed;
-  }
-  
+.register-container {
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.address-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+button.submit-btn {
+  width: 100%;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.submit-btn:hover {
+  background-color: #333;
+}
