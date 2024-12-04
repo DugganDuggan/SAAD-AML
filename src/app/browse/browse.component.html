@@ -23,8 +23,7 @@
                             <input 
                               type="checkbox" 
                               [value]="genre" 
-                              (change)="toggleSelection(genre, $event)" 
-                              [checked]="selectedOption() === genre">
+                              (change)="toggleGenreSelection(genre, $event)" >
                             {{ genre }}
                           </label>
                     </div>
@@ -39,8 +38,7 @@
                               type="checkbox" 
                               name="genre" 
                               [value]="type" 
-                              (change)="toggleSelection(type, $event)" 
-                              [checked]="selectedOption() === type">
+                              (change)="toggleTypeSelection(type, $event)">
                             {{ type }}
                           </label>                    </div>
                 </div>
@@ -55,24 +53,22 @@
             </div>
         </div>
 
-        <!-- Results Section -->
+ 
         <div class="results">
-
-
-            <div class="row" *ngFor="let row of rows">
-                <!-- Loop through each row and create 3 columns -->
-                <div class="column" *ngFor="let column of columns">
-                    <div *ngIf="getTitle() !== null">
-                        <div class="image-container">
-                            <img [src]="imageUrl" width="100%" height="100%">
-                        </div>
-                        <label id="label">{{ getTitle() }}</label>
-                        <br>
-                        <button [routerLink]="['/media-details', getRow() ]">View More</button>
-                    </div>
+            <div class="row" *ngFor="let rowIndex of rows">
+              <!-- Loop through columns for each row -->
+              <div class="column" *ngFor="let colIndex of columns; let col = index">
+                <div *ngIf="getTitle() !== null">
+                  <div class="image-container">
+                    <img [src]="imageUrl" width="100%" height="100%">
+                  </div>
+                  <label id="label">{{ getTitle() }}</label>
+                  <br>
+                  <button [routerLink]="['/media-details', getID()]">View More</button>
                 </div>
+              </div>
             </div>
-              
-        </div>
+          </div>
+          
     </div>
 </div>

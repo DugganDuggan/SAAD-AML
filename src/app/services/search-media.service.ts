@@ -1,28 +1,25 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Media } from '../models/media';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchMediaService {
-private apiUrl = 'http://localhost:3000/api/data';
+private apiUrl = 'http://localhost:3000/api/browseMedia';
 
-private cachedData: any = null; // Cache for data
 
 constructor(private http: HttpClient) {}
 
-getData(): Observable<any> {
-  // If data is already cached, return it as an Observable
-  if (this.cachedData) {
-    return this.cachedData;
-  }
+getData(genres: string[], types: string[], page: number, perPage: number): Observable<Media[]> {
+  const params = new HttpParams()
+    .set('genres', JSON.stringify(genres)) // Send genres as a JSON string
+    .set('types', JSON.stringify(types))  // Send types as a JSON string
+    .set('page', page)
+    .set('perPage', perPage);
 
-  // Otherwise, fetch from API and store it in the cache
-  this.cachedData = this.http.get<any>(this.apiUrl);
-
-  return this.cachedData
+  return this.http.get<Media[]>(this.apiUrl, { params });
 }
-
 
 }

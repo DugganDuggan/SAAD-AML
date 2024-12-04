@@ -2,6 +2,8 @@ import { NgIf } from '@angular/common';
 import { Component, OnInit, signal } from '@angular/core';
 import { SearchMediaService } from '../services/search-media.service';
 import { ActivatedRoute } from '@angular/router';
+import { Media } from '../models/media';
+import { MediaDetailsService } from '../services/media-details.service';
 
 @Component({
   selector: 'app-media-details',
@@ -12,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MediaDetailsComponent implements OnInit{
 
-  constructor(private SearchMediaService: SearchMediaService, private route: ActivatedRoute) {}
+  constructor(private MediaDetailsService: MediaDetailsService, private route: ActivatedRoute) {}
 
   borrowHidden = signal(false); // Initial state is hidden
   reserveHidden = signal(false); // Initial state is hidden
@@ -28,39 +30,34 @@ export class MediaDetailsComponent implements OnInit{
 
   }
 
+  mediaId: number = 0
+  media: Media[] = [];
 
-  data: any[] = [];
-  mediaID: string | null = null;
 
   ngOnInit() {
-    this.mediaID = this.route.snapshot.paramMap.get('id');
-      this.SearchMediaService.getData().subscribe(
-          (response) => {
-              this.data = response;
-          },
-          (error) => {
-              console.error('Error fetching data:', error);
-          }
-      );
+    this.mediaId = +this.route.snapshot.paramMap.get('id')!;
+    this.MediaDetailsService.getData(this.mediaId).subscribe((data: Media[]) => {
+      this.media = data.map(item => new Media(item.media_ID, item.title, item.author, item.genre, item.description, item.cover_Image_URL, item.type, item.lanuage, item.publication_Year));
+    });
   }
 
   getTitle(){
-    return this.data[Number(this.mediaID)].title
+   return this.media[0].title
   }
   getImg(){
-    return this.data[Number(this.mediaID)].cover_Image_URL
+   return this.media[0].cover_Image_URL
   }
   getAuthor(){
-    return this.data[Number(this.mediaID)].author
+   return this.media[0].author
   }
   getDescription(){
-    return this.data[Number(this.mediaID)].description
+   return this.media[0].description
   }
   getGenre(){
-    return this.data[Number(this.mediaID)].genre
+    return this.media[0].genre
   }
   getDate(){
-    return this.data[Number(this.mediaID)].publication_Year
+    return this.media[0].publication_Year
   }
 
 
