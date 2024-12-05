@@ -1,0 +1,47 @@
+<div class="login-container">
+  <!-- Login Card -->
+  <div class="login-card">
+    <h1>Log In</h1>
+    
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <!-- Username/Email -->
+      <div class="form-group">
+        <label for="username">Username/ Email</label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username" 
+          class="form-control" 
+          [(ngModel)]="username" 
+          placeholder="Username/ Email" 
+          required>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          class="form-control" 
+          [(ngModel)]="password" 
+          placeholder="Password" 
+          required>
+      </div>
+
+      <!-- Buttons -->
+      <div class="button-group">
+        <button type="submit" class="btn sign-in-btn" [disabled]="!loginForm.form.valid">Sign in</button>
+        <button type="button" class="btn forgotten-password-btn" (click)="onForgotPassword()">Forgotten Password</button>
+        <button type="button" class="btn sign-up-btn" (click)="onSignUp()">Sign Up</button>
+      </div>
+    </form>
+
+
+    <!-- Footer Links -->
+    <div class="footer-links">
+      <a href="#">Terms Of Use</a> | <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</div>
