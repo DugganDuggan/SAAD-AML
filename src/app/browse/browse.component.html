@@ -14,19 +14,16 @@
                         <label><input type="radio" name="availability" value="Checked Out">Available to Reserve</label>
                         <label><input type="radio" name="availability" value="Checked Out">Unavailable</label>
                     </div>
-                </div>
-
+                </div>                  
                 <!-- Genre Section -->
                 <div class="filter-section">
                     <h4>Genre</h4>
                     <div class="filter-options">
                         <label *ngFor="let genre of genres()">
                             <input 
-                              type="radio" 
-                              name="genre" 
+                              type="checkbox" 
                               [value]="genre" 
-                              (change)="onFilterChange(genre)" 
-                              [checked]="selectedOption() === genre">
+                              (change)="toggleGenreSelection(genre, $event)" >
                             {{ genre }}
                           </label>
                     </div>
@@ -38,96 +35,57 @@
                     <div class="filter-options">
                         <label *ngFor="let type of types()">
                             <input 
-                              type="radio" 
+                              type="checkbox" 
                               name="genre" 
                               [value]="type" 
-                              (change)="onFilterChange(type)" 
-                              [checked]="selectedOption() === type">
+                              (change)="toggleTypeSelection(type, $event)">
                             {{ type }}
                           </label>                    </div>
                 </div>
                 <div class="filter-section">
                     <h4>Publication Date</h4>
                     <label>From </label>
-                    <input type="date" id="start-date" name="start-date">
+                    <input type="month" id="start-date" name="start-date">
                     <label>To </label>
-                    <input type="date" id="end-date" name="end-date">
+                    <input type="month" id="end-date" name="end-date">
                 
                 </div>
             </div>
         </div>
 
-        <!-- Results Section -->
         <div class="results">
-            <div class="row">
-                <div class="column">
-                    <img src="assets/images/image.png" width="100%" height="100%">
-                    <label>Media 1</label>
-                    <button routerLink="/media-details">View More</button>
+            <div class="row" *ngFor="let rowIndex of rows">
+              <!-- Loop through columns for each row -->
+              <div class="column" *ngFor="let colIndex of columns; let col = index">
+                <div *ngIf="getData('title') !== null">
+                  <div class="image-container">
+                    <img 
+                      [src]="getData('image')" 
+                      width="100%" 
+                      height="100%">
+                  </div>
+                  <label id="label">{{ getData('title') }}</label>
+                  <br>
+                  <button [routerLink]="['/media-details', getData('ID')]">View More</button>
                 </div>
-                <div class="column">
-                    <img src="assets/images/image.png" width="100%" height="100%">
-                    <label>Media 2</label>
-                    <button routerLink="/media-details">View More</button>
-                </div>
-                <div class="column">
-                    <img src="assets/images/image.png" width="100%" height="100%">
-                    <label>Media 3</label>
-                    <button routerLink="/media-details">View More</button>
-                </div>
-                <div class="column">
-                    <img src="assets/images/image.png" width="100%" height="100%">
-                    <label>Media 3</label>
-                    <button routerLink="/media-details">View More</button>
-                </div>
-
+              </div>
             </div>
-            <div class="row">
-                <div class="column">
-                    <img src="assets/images/image.png" width="100%" height="100%">
-                    <label>Media 3</label>
-                    <button routerLink="/media-details">View More</button>
-                </div>
+                      <!-- Pagination Controls -->
+          <div style="margin-left: 40%; padding-bottom: 50px;" class="pagination-controls">
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                
+                <a >1</a>
+                <a class="active" >2</a>
+                <a >3</a>
+                <a >&raquo;</a>
+              </div>
+                        </div>
 
-                <div class="column">
-                    <img src="assets/images/image.png" width="100%" height="100%">
-                    <label>Media 4</label>
-                    <button routerLink="/media-details">View More</button>
-                </div>
-                <div class="column">
-                    <img src="assets/images/image.png" width="100%" height="100%">
-                    <label>Media 5</label>
-                    <button routerLink="/media-details">View More</button>
-                </div>
-                <div class="column">
-                    <img src="assets/images/image.png" width="100%" height="100%">
-                    <label>Media 6</label>
-                    <button routerLink="/media-details">View More</button>
-                </div>
-            </div>        
-            <div class="row">
-                <div class="column">
-                    <img src="assets/images/image.png" width="100%" height="100%">
-                    <label>Media 3</label>
-                    <button routerLink="/media-details">View More</button>
-                </div>
+          </div>
+          
 
-                <div class="column">
-                    <img src="assets/images/image.png" width="100%" height="100%">
-                    <label>Media 7</label>
-                    <button routerLink="/media-details">View More</button>
-                </div>
-                <div class="column">
-                    <img src="assets/images/image.png" width="100%" height="100%">
-                    <label>Media 8</label>
-                    <button routerLink="/media-details">View More</button>
-                </div>
-                <div class="column">
-                    <img src="assets/images/image.png" width="100%" height="100%">
-                    <label>Media 9</label>
-                    <button routerLink="/media-details">View More</button>
-                </div>
-            </div>        
-        </div>
+
+
     </div>
 </div>

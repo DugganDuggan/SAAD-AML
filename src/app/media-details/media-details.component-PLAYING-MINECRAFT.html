@@ -1,5 +1,3 @@
-
-
 <div class="popup-overlay" *ngIf="borrowHidden()">
     <div class="popup-content">
         <h2>Borrow Media Name</h2>
@@ -38,8 +36,9 @@
                     <input type="date" style="display: inline;">
                 </div>
             </div>
+            <!-- OPtions for sms or email notification for pickup time and instuctions or delivery  -->
           <button type="submit">Submit</button>
-          <button class="cancel">Cancel</button>
+          <button class="cancel" >Cancel</button>
         </form>
     </div>    
 </div>
@@ -49,14 +48,14 @@
 <div class="centered">
     <div class="row">
         <div class="column left">
-            <img src="{{getData('image')}}" >
+            <img src="assets/images/image.png" >
         </div>
         <div class="column right">
             <div class="text">
-                <h1 style="padding-bottom: 15px;">{{getData('title')}}</h1>
-                <h3 style="padding-bottom: 15px;">{{getData('author')}}</h3>
-                <h4 style="padding-bottom: 15px;">{{getData('genre')}} - {{getData('year')}}</h4>
-                <p>{{getData('description')}}</p>
+                <h1 style="padding-bottom: 15px;">Media Name</h1>
+                <h3 style="padding-bottom: 15px;">By Author Name</h3>
+                <h4 style="padding-bottom: 15px;">Genre - Publication Date</h4>
+                <p>Media Description</p>
                 <br>
                 Things about borrowng is it avalibale and where it can be borrowed ie e coppy/ in branch/ delivery
                 <br>
