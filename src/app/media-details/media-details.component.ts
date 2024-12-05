@@ -41,24 +41,30 @@ export class MediaDetailsComponent implements OnInit{
     });
   }
 
-  getTitle(){
-   return this.media[0].title
+  getData(type: string){
+    switch(type){
+      case "title": {
+        return this.media[0].title
+      }
+      case "author": {
+        return this.media[0].author
+      }
+      case "genre":{
+        return this.media[0].genre
+      }
+      case "description": {
+        return this.media[0].description
+      }
+      case "image": {
+        return this.media[0].cover_Image_URL
+      }
+      case "year": {
+        return this.media[0].publication_Year
+      }
+      default: {
+        return null
+      }
+    }
   }
-  getImg(){
-   return this.media[0].cover_Image_URL
-  }
-  getAuthor(){
-   return this.media[0].author
-  }
-  getDescription(){
-   return this.media[0].description
-  }
-  getGenre(){
-    return this.media[0].genre
-  }
-  getDate(){
-    return this.media[0].publication_Year
-  }
-
 
 }

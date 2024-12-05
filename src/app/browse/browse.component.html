@@ -45,30 +45,37 @@
                 <div class="filter-section">
                     <h4>Publication Date</h4>
                     <label>From </label>
-                    <input type="date" id="start-date" name="start-date">
+                    <input type="month" id="start-date" name="start-date">
                     <label>To </label>
-                    <input type="date" id="end-date" name="end-date">
+                    <input type="month" id="end-date" name="end-date">
                 
                 </div>
             </div>
         </div>
 
- 
         <div class="results">
-            <div class="row" *ngFor="let rowIndex of rows">
+            <div class="row" *ngFor="let rowData of getPaginatedData()">
               <!-- Loop through columns for each row -->
               <div class="column" *ngFor="let colIndex of columns; let col = index">
-                <div *ngIf="getTitle() !== null">
+                <div *ngIf="rowData[col]">
                   <div class="image-container">
-                    <img [src]="imageUrl" width="100%" height="100%">
+                    <img [src]="rowData[col].image" width="100%" height="100%">
                   </div>
-                  <label id="label">{{ getTitle() }}</label>
+                  <label id="label">{{ rowData[col].title }}</label>
                   <br>
-                  <button [routerLink]="['/media-details', getID()]">View More</button>
+                  <button [routerLink]="['/media-details', rowData[col].ID]">View More</button>
                 </div>
               </div>
             </div>
           </div>
+          
+          <!-- Pagination Controls -->
+          <div class="pagination-controls">
+            <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+            <span>Page {{ currentPage }} of {{ (mediaList.length / mediaPerPage) }}</span>
+            <button (click)="nextPage()" [disabled]="currentPage === (mediaList.length / mediaPerPage)">Next</button>
+          </div>
+                    
           
     </div>
 </div>

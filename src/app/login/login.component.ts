@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +10,4 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginComponent {
 
-  logInService = inject(LoginService);
-  updateLogIn() {
-    this.logInService.loggedInTrue();
-  }
 }

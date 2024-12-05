@@ -28,7 +28,7 @@ db.connect((err) => {
 
 // API endpoint to fetch filtered data
 app.get('/api/browseMedia', (req, res) => {
-    const { genres, types, page = 1, pageSize = 20 } = req.query;
+    const { genres, types, page, pageSize = 20, startYear, endYear } = req.query;
 
     // Parse genres and types from JSON strings
     const genreArray = genres ? JSON.parse(genres) : [];
@@ -51,6 +51,19 @@ app.get('/api/browseMedia', (req, res) => {
         query += ` AND type IN (${typeArray.map(() => '?').join(',')})`;
         queryParams.push(...typeArray);
     }
+
+    // Add year filter if provided
+    if (startYear && endYear) {
+        query += ` AND publication_year BETWEEN ? AND ?`;
+        queryParams.push(parseInt(startYear, 10), parseInt(endYear, 10));
+    } else if (startYear) {
+        query += ` AND publication_year >= ?`;
+        queryParams.push(parseInt(startYear, 10));
+    } else if (endYear) {
+        query += ` AND publication_year <= ?`;
+        queryParams.push(parseInt(endYear, 10));
+    }
+
 
     // Add pagination
     const offset = (parseInt(page, 10) - 1) * parseInt(pageSize, 10);

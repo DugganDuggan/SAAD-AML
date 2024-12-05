@@ -1,6 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { LoginService } from '../../services/login.service';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -12,13 +11,4 @@ import { NgIf } from '@angular/common';
 })
 export class HeaderComponent {
   title = signal('AML')
-
-  logInService = inject(LoginService);
-  get loggedIn() {
-    return this.logInService.isLoggedIn;
-  }
-  updateLogIn() {
-    this.logInService.loggedInFalse();
-  }
-
 }

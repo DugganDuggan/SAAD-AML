@@ -26,6 +26,10 @@ export class BrowseComponent implements OnInit{
   mediaList: Media[] = [];
 
   rows: number[] = []; // number of rows of media
+
+  currentPage: number = 1
+  mediaPerPage: number = 20
+
   counter: number = 0;
   imageUrl: string = "";
   columns: number[] = [1, 2, 3, 4]
@@ -80,29 +84,47 @@ export class BrowseComponent implements OnInit{
 
   constructor(private SearchMediaService: SearchMediaService) {}
 
-
   setRows(): void {
     const numberOfRows = Math.ceil(this.mediaList.length / 4);  // Divide by 3 and round up
     this.rows = new Array(numberOfRows);  // Create an array with that many elements
   }
 
-
-  getTitle(){
-    try{
-      this.imageUrl = this.mediaList[this.counter].cover_Image_URL
-      return this.mediaList[this.counter].title
+  getData(type: string){
+    switch(type){
+      case "title": {
+        try {return this.mediaList[this.counter].title}
+        catch {return null}
+      }
+      case "image": {
+        return this.mediaList[this.counter].cover_Image_URL
+      }
+      case "ID": {
+        this.counter = this.counter + 1
+        return this.mediaList[this.counter - 1].media_ID
+      }
+      default: {
+        return null
+      }
     }
-    catch{
-      return null
+  }  
+
+  getPaginatedData(): any[] {
+    const startIndex = (this.currentPage - 1) * this.mediaPerPage;
+    const endIndex = startIndex + this.mediaPerPage;
+    return this.mediaList.slice(startIndex, endIndex);
+  }
+
+  nextPage(): void {
+    const totalPages = Math.ceil(this.mediaList.length / this.mediaPerPage);
+    if (this.currentPage < totalPages) {
+      this.currentPage++;
     }
   }
 
-  getID(){
-    this.counter = this.counter + 1
-    return (this.mediaList[this.counter -1].media_ID)
+  previousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
   }
 
-  filter(){
-
-  }
 }

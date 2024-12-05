@@ -49,14 +49,14 @@
 <div class="centered">
     <div class="row">
         <div class="column left">
-            <img src="{{getImg()}}" >
+            <img src="{{getData('image')}}" >
         </div>
         <div class="column right">
             <div class="text">
-                <h1 style="padding-bottom: 15px;">{{getTitle()}}</h1>
-                <h3 style="padding-bottom: 15px;">{{getAuthor()}}</h3>
-                <h4 style="padding-bottom: 15px;">{{getGenre()}} - {{getDate()}}</h4>
-                <p>{{getDescription()}}</p>
+                <h1 style="padding-bottom: 15px;">{{getData('title')}}</h1>
+                <h3 style="padding-bottom: 15px;">{{getData('author')}}</h3>
+                <h4 style="padding-bottom: 15px;">{{getData('genre')}} - {{getData('year')}}</h4>
+                <p>{{getData('description')}}</p>
                 <br>
                 Things about borrowng is it avalibale and where it can be borrowed ie e coppy/ in branch/ delivery
                 <br>
