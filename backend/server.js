@@ -28,7 +28,7 @@ db.connect((err) => {
 
 // API endpoint to fetch filtered data
 app.get('/api/browseMedia', (req, res) => {
-    const { genres, types, page, pageSize = 20, startYear, endYear } = req.query;
+    const { genres, types, sort, page, pageSize = 20 } = req.query;
 
     // Parse genres and types from JSON strings
     const genreArray = genres ? JSON.parse(genres) : [];
@@ -52,18 +52,24 @@ app.get('/api/browseMedia', (req, res) => {
         queryParams.push(...typeArray);
     }
 
-    // Add year filter if provided
-    if (startYear && endYear) {
-        query += ` AND publication_year BETWEEN ? AND ?`;
-        queryParams.push(parseInt(startYear, 10), parseInt(endYear, 10));
-    } else if (startYear) {
-        query += ` AND publication_year >= ?`;
-        queryParams.push(parseInt(startYear, 10));
-    } else if (endYear) {
-        query += ` AND publication_year <= ?`;
-        queryParams.push(parseInt(endYear, 10));
-    }
 
+
+    // Add year filter if provided
+    // if (startYear && endYear) {
+    //     query += ` AND publication_year BETWEEN ? AND ?`;
+    //     queryParams.push(parseInt(startYear, 10), parseInt(endYear, 10));
+    // } else if (startYear) {
+    //     query += ` AND publication_year >= ?`;
+    //     queryParams.push(parseInt(startYear, 10));
+    // } else if (endYear) {
+    //     query += ` AND publication_year <= ?`;
+    //     queryParams.push(parseInt(endYear, 10));
+    // }
+
+    if (sort != "Default" && sort != ""){
+        query += ' ORDER BY ?'
+        queryParams.push(sort);
+    }
 
     // Add pagination
     const offset = (parseInt(page, 10) - 1) * parseInt(pageSize, 10);
@@ -76,7 +82,6 @@ app.get('/api/browseMedia', (req, res) => {
             console.error('Query execution error:', err);
             res.status(500).send(err);
         } else {
-            console.log('Query Results:', results);
             res.json(results);
         }
     });
@@ -94,7 +99,6 @@ app.get('/api/specificMedia', (req, res) => {
             console.error('Query execution error:', err);
             res.status(500).send(err);
         } else {
-            console.log('Query Results:', results);
             res.json(results);
         }
     });
