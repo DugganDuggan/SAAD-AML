@@ -85,7 +85,7 @@ export class BrowseComponent implements OnInit{
   constructor(private SearchMediaService: SearchMediaService) {}
 
   setRows(): void {
-    const numberOfRows = Math.ceil(this.mediaList.length / 4);  // Divide by 3 and round up
+    const numberOfRows = Math.ceil(this.mediaPerPage / 4);  // Divide by 3 and round up
     this.rows = new Array(numberOfRows);  // Create an array with that many elements
   }
 
@@ -109,7 +109,7 @@ export class BrowseComponent implements OnInit{
   }  
 
   getPaginatedData(): any[] {
-    const startIndex = (this.currentPage - 1) * this.mediaPerPage;
+    const startIndex = (this.currentPage - 1);
     const endIndex = startIndex + this.mediaPerPage;
     return this.mediaList.slice(startIndex, endIndex);
   }
