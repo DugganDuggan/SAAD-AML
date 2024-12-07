@@ -67,9 +67,9 @@ app.get('/api/browseMedia', (req, res) => {
     // }
 
     if (sort != "Default" && sort != ""){
-        query += ' ORDER BY ?'
-        queryParams.push(sort);
+        query += ` ORDER BY ${sort}`;
     }
+    else query+= " ORDER BY RAND()";
 
     // Add pagination
     const offset = (parseInt(page, 10) - 1) * parseInt(pageSize, 10);
