@@ -71,7 +71,6 @@ export class BrowseComponent implements OnInit{
   updateMediaFilter(){
     this.SearchMediaService.getData(this.selectedGenres, this.selectedTypes, this.sortOption).subscribe((data: Media[]) => {
       this.mediaList = data.map(item => new Media(item.media_ID, item.title, item.author, item.genre, item.description, item.cover_Image_URL, item.type, item.lanuage, item.publication_Year));
-      console.log(this.mediaList); // Log to check the fetched data
       this.setRows()
       this.counter = 0
     });
@@ -109,8 +108,12 @@ export class BrowseComponent implements OnInit{
     }
   }  
 
-  onSearch(){
-    console.log("32321")
-  }
+  onSearch(searchValue: string){
+
+    this.SearchMediaService.searchData(searchValue).subscribe((data: Media[]) => {
+      this.mediaList = data.map(item => new Media(item.media_ID, item.title, item.author, item.genre, item.description, item.cover_Image_URL, item.type, item.lanuage, item.publication_Year));
+      this.setRows()
+      this.counter = 0
+  })}
 
 }

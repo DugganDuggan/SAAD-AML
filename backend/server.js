@@ -100,6 +100,23 @@ app.get('/api/specificMedia', (req, res) => {
 
 });
 
+app.get('/api/searchMedia', (req, res) => {
+    const { searchTerm } = req.query;
+
+    let query = 'SELECT * FROM Media WHERE title LIKE ? OR author LIKE ? OR genre LIKE ?';
+    const queryParams = [`%${searchTerm}%`, `%${searchTerm}%`, `%${searchTerm}%`];
+
+    db.query(query, queryParams, (err, results) => {
+        if (err) {
+            console.error('Query execution error:', err);
+            res.status(500).send(err);
+        } else {
+            res.json(results);
+        }
+    });
+
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

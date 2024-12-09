@@ -2,9 +2,10 @@
     <div style="display: inline;">
         <input
   type="text"
+  #searchInput
   class="search-bar"
   placeholder="Search Media..."
-  (keydown.enter)="onSearch()"
+  (keydown.enter)="onSearch(searchInput.value)"
 />
 
         <div style="float: right;">
