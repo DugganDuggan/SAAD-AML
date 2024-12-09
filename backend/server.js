@@ -28,7 +28,7 @@ db.connect((err) => {
 
 // API endpoint to fetch filtered data
 app.get('/api/browseMedia', (req, res) => {
-    const { genres, types, page, pageSize = 20, startYear, endYear } = req.query;
+    const { genres, types, sort } = req.query;
 
     // Parse genres and types from JSON strings
     const genreArray = genres ? JSON.parse(genres) : [];
@@ -52,23 +52,24 @@ app.get('/api/browseMedia', (req, res) => {
         queryParams.push(...typeArray);
     }
 
+
+
     // Add year filter if provided
-    if (startYear && endYear) {
-        query += ` AND publication_year BETWEEN ? AND ?`;
-        queryParams.push(parseInt(startYear, 10), parseInt(endYear, 10));
-    } else if (startYear) {
-        query += ` AND publication_year >= ?`;
-        queryParams.push(parseInt(startYear, 10));
-    } else if (endYear) {
-        query += ` AND publication_year <= ?`;
-        queryParams.push(parseInt(endYear, 10));
+    // if (startYear && endYear) {
+    //     query += ` AND publication_year BETWEEN ? AND ?`;
+    //     queryParams.push(parseInt(startYear, 10), parseInt(endYear, 10));
+    // } else if (startYear) {
+    //     query += ` AND publication_year >= ?`;
+    //     queryParams.push(parseInt(startYear, 10));
+    // } else if (endYear) {
+    //     query += ` AND publication_year <= ?`;
+    //     queryParams.push(parseInt(endYear, 10));
+    // }
+
+    if (sort != "Default" && sort != ""){
+        query += ` ORDER BY ${sort}`;
     }
-
-
-    // Add pagination
-    const offset = (parseInt(page, 10) - 1) * parseInt(pageSize, 10);
-    query += ' LIMIT ? OFFSET ?';
-    queryParams.push(parseInt(pageSize, 10), offset);
+    else query+= " ORDER BY RAND()";
 
     // Execute the query using mysql2
     db.query(query, queryParams, (err, results) => {
@@ -76,7 +77,6 @@ app.get('/api/browseMedia', (req, res) => {
             console.error('Query execution error:', err);
             res.status(500).send(err);
         } else {
-            console.log('Query Results:', results);
             res.json(results);
         }
     });
@@ -94,7 +94,23 @@ app.get('/api/specificMedia', (req, res) => {
             console.error('Query execution error:', err);
             res.status(500).send(err);
         } else {
-            console.log('Query Results:', results);
+            res.json(results);
+        }
+    });
+
+});
+
+app.get('/api/searchMedia', (req, res) => {
+    const { searchTerm } = req.query;
+
+    let query = 'SELECT * FROM Media WHERE title LIKE ? OR author LIKE ? OR genre LIKE ?';
+    const queryParams = [`%${searchTerm}%`, `%${searchTerm}%`, `%${searchTerm}%`];
+
+    db.query(query, queryParams, (err, results) => {
+        if (err) {
+            console.error('Query execution error:', err);
+            res.status(500).send(err);
+        } else {
             res.json(results);
         }
     });

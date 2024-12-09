@@ -1,13 +1,20 @@
 <div class="centered">
     <div style="display: inline;">
-        <input type="text" class="search-bar" placeholder="Search...">
+        <input
+  type="text"
+  #searchInput
+  class="search-bar"
+  placeholder="Search Media..."
+  (keydown.enter)="onSearch(searchInput.value)"
+/>
+
         <div style="float: right;">
             <label for="sort" class="sort-label">Sort By:</label>
-            <select id="sort" class="sort-dropdown">
-              <option value="priceLowToHigh">Default</option>
-              <option value="priceHighToLow">Title</option>
-              <option value="mileageLowToHigh">Type</option>
-              <option value="popularity">Genre</option>
+            <select id="sort" class="sort-dropdown" (change)="sortMedia($event)">
+              <option value="Default">Default</option>
+              <option value="title">Title</option>
+              <option value="type">Type</option>
+              <option value="genre">Genre</option>
             </select>
           </div>
     </div>      
@@ -80,18 +87,6 @@
                 </div>
               </div>
             </div>
-                      <!-- Pagination Controls -->
-          <div style="margin-left: 40%; padding-bottom: 50px;" class="pagination-controls">
-            <div class="pagination">
-                <a href="#">&laquo;</a>
-                
-                <a >1</a>
-                <a class="active" >2</a>
-                <a >3</a>
-                <a >&raquo;</a>
-              </div>
-                        </div>
-
           </div>
           
 
