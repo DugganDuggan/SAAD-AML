@@ -27,9 +27,6 @@ export class BrowseComponent implements OnInit{
 
   rows: number[] = []; // number of rows of media
 
-  currentPage: number = 1
-  mediaPerPage: number = 20
-
   counter: number = 0;
   imageUrl: string = "";
   columns: number[] = [1, 2, 3, 4]
@@ -72,7 +69,7 @@ export class BrowseComponent implements OnInit{
 
 
   updateMediaFilter(){
-    this.SearchMediaService.getData(this.selectedGenres, this.selectedTypes, this.sortOption, 1, 20).subscribe((data: Media[]) => {
+    this.SearchMediaService.getData(this.selectedGenres, this.selectedTypes, this.sortOption).subscribe((data: Media[]) => {
       this.mediaList = data.map(item => new Media(item.media_ID, item.title, item.author, item.genre, item.description, item.cover_Image_URL, item.type, item.lanuage, item.publication_Year));
       console.log(this.mediaList); // Log to check the fetched data
       this.setRows()
@@ -89,7 +86,7 @@ export class BrowseComponent implements OnInit{
 
 
   setRows(): void {
-    const numberOfRows = Math.ceil(this.mediaPerPage / 4);  // Divide by 3 and round up
+    const numberOfRows = Math.ceil(this.mediaList.length / 4);  // Divide by 3 and round up
     this.rows = new Array(numberOfRows);  // Create an array with that many elements
   }
 
@@ -112,23 +109,8 @@ export class BrowseComponent implements OnInit{
     }
   }  
 
-  getPaginatedData(): any[] {
-    const startIndex = (this.currentPage - 1);
-    const endIndex = startIndex + this.mediaPerPage;
-    return this.mediaList.slice(startIndex, endIndex);
-  }
-
-  nextPage(): void {
-    const totalPages = Math.ceil(this.mediaList.length / this.mediaPerPage);
-    if (this.currentPage < totalPages) {
-      this.currentPage++;
-    }
-  }
-
-  previousPage(): void {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-    }
+  onSearch(){
+    console.log("32321")
   }
 
 }

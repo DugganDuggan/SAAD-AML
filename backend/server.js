@@ -28,7 +28,7 @@ db.connect((err) => {
 
 // API endpoint to fetch filtered data
 app.get('/api/browseMedia', (req, res) => {
-    const { genres, types, sort, page, pageSize = 20 } = req.query;
+    const { genres, types, sort } = req.query;
 
     // Parse genres and types from JSON strings
     const genreArray = genres ? JSON.parse(genres) : [];
@@ -70,11 +70,6 @@ app.get('/api/browseMedia', (req, res) => {
         query += ` ORDER BY ${sort}`;
     }
     else query+= " ORDER BY RAND()";
-
-    // Add pagination
-    const offset = (parseInt(page, 10) - 1) * parseInt(pageSize, 10);
-    query += ' LIMIT ? OFFSET ?';
-    queryParams.push(parseInt(pageSize, 10), offset);
 
     // Execute the query using mysql2
     db.query(query, queryParams, (err, results) => {
