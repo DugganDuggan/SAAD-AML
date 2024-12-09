@@ -117,6 +117,29 @@ app.get('/api/searchMedia', (req, res) => {
 
 });
 
+app.get('/api/borrowReserverMedia', (req, res) => {
+    const { borrow, media_ID, User_ID = 1 } = req.query;
+    let query = ""
+    // This cannot be fully implemented as the user registration/login use stories were not implemented which is required
+    if (borrow){
+    query = 'INSERT INTO borrow (media_ID, user_ID, start_Date, end_Date, return_Date, status) VALUES (?, 1, ?, ?, ?, ?)';
+    }
+    else{
+     query = 'INSERT INTO reservation (media_ID, user_ID, reservation_Date, status) VALUES (?, 1, ?, ?)'
+    }
+    const queryParams = [`%${searchTerm}%`, `%${searchTerm}%`, `%${searchTerm}%`];
+
+    db.query(query, queryParams, (err, results) => {
+        if (err) {
+            console.error('Query execution error:', err);
+            res.status(500).send(err);
+        } else {
+            res.json(results);
+        }
+    });
+
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
