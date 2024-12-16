@@ -78,13 +78,13 @@
   .graphs-section {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
   }
   .bar-chart img,
   .pie-chart img {
-    width: 45%;
+    width: 120%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 40px;
   }
   
   /* Recently Transferred Media */
