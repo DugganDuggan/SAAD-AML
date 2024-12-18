@@ -11,7 +11,7 @@ The project required a development methodology that facilitated teamwork, adapta
 
 ### **2. Considered Options**  
 - **Scrum**  
-- **Agile (General Practices)**  
+- **Agile**  
 
 ---
 
@@ -41,7 +41,7 @@ The project required a development methodology that facilitated teamwork, adapta
 Pros: Provides structure within Agile, ensures accountability, and encourages iterative progress and regular feedback.  
 Cons: Requires strict adherence to ceremonies and roles, which can be challenging for small or inexperienced teams.  
 
-**Agile (General Practices)**  
+**Agile**  
 Pros: Flexible and adaptable, allows teams to choose and tailor practices as needed.  
 Cons: Lacks the predefined structure of Scrum, which can lead to inconsistency or lack of discipline in team processes.  
 
