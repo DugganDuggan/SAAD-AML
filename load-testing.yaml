@@ -1,0 +1,15 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 300  # 5 minutes
+      arrivalRate: 200  # Requests per second
+scenarios:
+  - flow:
+      - get:
+          url: "/api/browseMedia"
+  - flow:
+      - get:
+          url: "/api/searchMedia"
+  - flow:
+      - get:
+          url: "/api/specificMedia"

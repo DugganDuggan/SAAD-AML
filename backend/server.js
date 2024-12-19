@@ -1,7 +1,8 @@
-const express = require('express');
-const mysql = require('mysql2'); // Use mysql2 instead of mysql
-const bodyParser = require('body-parser');
-const cors = require('cors');
+import express from 'express';
+import mysql from 'mysql2';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+
 
 const app = express();
 const port = 3000;
@@ -13,7 +14,7 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'password', // Add your password here
+    password: 'password',
     database: 'aml',
 });
 
@@ -52,8 +53,6 @@ app.get('/api/browseMedia', (req, res) => {
         queryParams.push(...typeArray);
     }
 
-
-
     // Add year filter if provided
     // if (startYear && endYear) {
     //     query += ` AND publication_year BETWEEN ? AND ?`;
@@ -66,11 +65,13 @@ app.get('/api/browseMedia', (req, res) => {
     //     queryParams.push(parseInt(endYear, 10));
     // }
 
-    if (sort != "Default" && sort != ""){
+    const allowedSortColumns = ['title', 'author', 'genre']; // Define valid columns
+    if (sort && allowedSortColumns.includes(sort)) {
         query += ` ORDER BY ${sort}`;
+    } else {
+        query += ' ORDER BY RAND()';
     }
-    else query+= " ORDER BY RAND()";
-
+    
     // Execute the query using mysql2
     db.query(query, queryParams, (err, results) => {
         if (err) {
@@ -144,3 +145,5 @@ app.get('/api/borrowReserverMedia', (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+
+export default app;
